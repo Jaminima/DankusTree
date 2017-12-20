@@ -14,7 +14,7 @@
     End Sub
 
     Private Sub TmrClock_Tick(sender As Object, e As EventArgs) Handles TmrClock.Tick
-        LblCountDown.Text = CStr(25 - DateAndTime.Now.Day) & " Days : " &
+        LblCountDown.Text = CStr(24 - DateAndTime.Now.Day) & " Days : " &
             CStr(24 - DateAndTime.Now.Hour) & " Hours : " &
             CStr(60 - DateAndTime.Now.Minute) & " Min's : " &
             CStr(60 - DateAndTime.Now.Second) & " Sec's"
