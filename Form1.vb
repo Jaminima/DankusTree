@@ -1,4 +1,19 @@
 ﻿Public Class Form1
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        For Each Control In Controls
+            If Control.GetType Is GetType(PictureBox) Then
+                If Control.Location.X = 3 Then
+                    Control.Name = "Snow"
+                    Control.BackColor = Color.FromName("White")
+                    Control.Location = New Point(Rnd() * 570, Control.Location.Y)
+                ElseIf Control.Name <> "PictureXmasTree" And Not Control.Name.Contains("Snow") Then
+                    Control.Name = "Light"
+                End If
+            End If
+        Next
+    End Sub
+
 #Region "Timers"
     Private Sub TmrLight_Tick(sender As Object, e As EventArgs) Handles TmrLight.Tick
         Randomize()
@@ -29,20 +44,6 @@
                     If SnowPic.Top >= 672 Then
                         SnowPic.Location = New Point(Rnd() * 570, 0)
                     End If
-                End If
-            End If
-        Next
-    End Sub
-
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        For Each Control In Controls
-            If Control.GetType Is GetType(PictureBox) Then
-                If Control.Location.X = 3 Then
-                    Control.Name = "Snow"
-                    Control.BackColor = Color.FromName("White")
-                    Control.Location = New Point(-10, Control.Location.Y)
-                ElseIf Control.Name <> "PictureXmasTree" And Not Control.Name.Contains("Snow") Then
-                    Control.Name = "Light"
                 End If
             End If
         Next
@@ -101,9 +102,11 @@
         If KeepOnTop = True Then
             KeepOnTop = False
             BtnKeepOnTop.BackColor = Color.DarkRed
+            Me.MinimizeBox = True
         ElseIf KeepOnTop = False Then
             KeepOnTop = True
             BtnKeepOnTop.BackColor = Color.Green
+            Me.MinimizeBox = False
         End If
     End Sub
 

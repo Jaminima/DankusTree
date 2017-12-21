@@ -793,6 +793,7 @@ Partial Class Form1
         Me.Controls.Add(Me.PictureBox5)
         Me.Controls.Add(Me.PictureXmasTree)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.Text = "DankusTree"
         CType(Me.PictureBox23, System.ComponentModel.ISupportInitialize).EndInit()
